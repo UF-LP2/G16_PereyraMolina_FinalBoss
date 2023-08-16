@@ -1,7 +1,7 @@
 from library.Ship import Ship
 import csv
 def main() -> None:
-    print("Hello World")
+
  #leemos el archivo
     Barco=[]
     ListaShips=[]
