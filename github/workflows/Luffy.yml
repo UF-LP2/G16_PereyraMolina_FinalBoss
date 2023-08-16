@@ -1,0 +1,40 @@
+name: Luffy
+on:
+  push:
+    branches:
+      - ENTREGA
+
+jobs:
+  internal_testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Running Repository Test
+      run: |
+        pip install -r requirements.txt
+        if [ -d "test" ];
+        then
+          pytest test
+        else
+          echo "Folder test doesn't exists"
+        fi
+
+  external_testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Clone Testing Repository and execute pytest
+      run: |
+        pip install -r requirements.txt
+        if [ -d "test" ];
+        then
+          rm -r test
+        fi
+        git clone https://github.com/UF-LP2/OOPyrate_Boss.git test
+        pytest test
