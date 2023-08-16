@@ -2,6 +2,6 @@ import pytest
 from library.Ship import Ship
 
 def test_exception():
-    #Ship(33,22)
-    with pytest.raises(Exception):
-        Ship.is_worth_it()
+
+   assert Ship(33,-22) == "Error de Tripulacion"
+   # with pytest.raises(Exception): Ship.is_worth_it()
