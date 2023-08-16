@@ -11,11 +11,11 @@ def main() -> None:
         reader=csv.reader(file)
         for row in reader:
             Barco.append(row)
-            if row[2] == ' ' and row[3] == ' ': #Si estan vacios los ultimos dos es un Ship
+            if row[2] == '' and row[3] == '': #Si estan vacios los ultimos dos es un Ship
               ListaShips.append(row) #copio datos a listaShip
-            if row[2] != ' ' and row[3] != ' ':
+            if row[2] != '' and row[3] != '':
               ListaCargo.append(row) #copio datos a listaCargo
-            if row[2] !=' ' and row[3]== ' ':
+            if row[2] !='' and row[3]== '':
               ListaCruise.append(row) #copio datos a listacruise
 
 
