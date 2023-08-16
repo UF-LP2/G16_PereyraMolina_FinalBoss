@@ -2,7 +2,7 @@ from library.Ship import Ship
 
 
 class Cargo(Ship):
-    def __init__(self, cargo,quality,draft,crew):
+    def __init__(self, draft,crew, cargo, quality):
        Ship.__init__(self,draft,crew)  # llamo al constructor de ship padre
        self.cargo = cargo
        self.quality = quality
@@ -25,7 +25,8 @@ class Cargo(Ship):
             self.draft = self.draft+2
         if self.quality == 0.25: # si calidad es 0.25 se agrega 0.5
             self.draft = self.draft+0.5
-        if self.draft > 0:
+        if self.draft >= 20:
             print("El barco merece ser saqueado!")
+            return True
         else:
             raise Exception("Error de cantidad")
